@@ -55,6 +55,16 @@ jobs:
                 echo "terminate=true" >> $GITHUB_ENV
             fi
 
+        - name: Free up disk space
+          run: |
+            sudo rm -rf /usr/share/dotnet
+            sudo rm -rf /opt/ghc
+            sudo rm -rf /usr/local/share/boost
+            sudo rm -rf $AGENT_TOOLSDIRECTORY
+
+        - name: Check disk usage
+          run: df -h
+
         - name: Github Pages config guard clause
           if: ${{ github.event.inputs.DEPLOY_TO_GITHUB_PAGES == 'true' }}
           run: |
