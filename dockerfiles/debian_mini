@@ -8,6 +8,7 @@ RUN apt-get -y install apt-utils gcc less \
 	curl python3-numpy
 
 RUN useradd -m user && echo "user:password" | chpasswd
+COPY --chown=user:user ./examples /home/user/examples
 # We set WORKDIR, as this gets extracted by Webvm to be used as the cwd. This is optional.
 WORKDIR /home/user/
 # We set env, as this gets extracted by Webvm. This is optional.
