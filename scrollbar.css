@@ -19,3 +19,8 @@
 .scrollbar *::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+.navbar, /* Hide header navigation */
+.flex.flex-row.w-14.h-full.bg-neutral-700 /* Hide sidebar */ {
+    display: none !important;
+}
