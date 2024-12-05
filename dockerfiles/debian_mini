@@ -5,7 +5,7 @@ RUN apt-get -y install apt-utils gcc less \
 	python3 vim unzip python3-cryptography \
 	fakeroot dbus base whiptail hexedit bpython \
 	patch wamerican ucf manpages file make dialog \
-	curl python3-numpy python3-pandas python3-pip 
+	curl python3-numpy
 
 RUN useradd -m user && echo "user:password" | chpasswd
 # We set WORKDIR, as this gets extracted by Webvm to be used as the cwd. This is optional.
