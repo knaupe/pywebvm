@@ -17,7 +17,7 @@ on:
         type: string
         description: 'Image size, 950M max'
         required: true
-        default: '950M'
+        default: '600M'
 
       DEPLOY_TO_GITHUB_PAGES:
         type: boolean
@@ -54,16 +54,6 @@ jobs:
                 echo "::error title=Invalid Dockerfile path::No file found at ${{ github.event.inputs.DOCKERFILE_PATH }}"
                 echo "terminate=true" >> $GITHUB_ENV
             fi
-
-        - name: Free up disk space
-          run: |
-            sudo rm -rf /usr/share/dotnet
-            sudo rm -rf /opt/ghc
-            sudo rm -rf /usr/local/share/boost
-            sudo rm -rf $AGENT_TOOLSDIRECTORY
-
-        - name: Check disk usage
-          run: df -h
 
         - name: Github Pages config guard clause
           if: ${{ github.event.inputs.DEPLOY_TO_GITHUB_PAGES == 'true' }}
