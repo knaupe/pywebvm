@@ -2,10 +2,11 @@ FROM --platform=i386 i386/debian:buster
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean && apt-get update && apt-get -y upgrade
 RUN apt-get -y install apt-utils gcc less \
-	python3 vim unzip python3-cryptography \
-	fakeroot dbus base whiptail hexedit bpython \
+	python3 vim unzip \
+	# python3-cryptography python3-numpy \
+	fakeroot dbus base whiptail hexedit \
 	patch wamerican ucf manpages file make dialog \
-	curl python3-numpy aircrack-ng tcpdump
+	aircrack-ng tshark
 
 RUN useradd -m user && echo "user:password" | chpasswd
 # COPY --chown=user:user ./examples /home/user/examples
