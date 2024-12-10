@@ -6,7 +6,7 @@ RUN apt-get -y install apt-utils gcc less \
 	# python3-cryptography python3-numpy \
 	fakeroot dbus base whiptail hexedit \
 	patch wamerican ucf manpages file make dialog \
-	aircrack-ng tshark
+	aircrack-ng tshark tcpdump
 
 RUN useradd -m user && echo "user:password" | chpasswd
 # COPY --chown=user:user ./examples /home/user/examples
